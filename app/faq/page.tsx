@@ -1,3 +1,46 @@
-import { Header, Footer, FAQ } from '@/components/rumo-shell'
-import { faqs } from '@/data/content'
-export default function FAQPage() { return <><Header /><main className="search-page"><span className="eyebrow eyebrow-dark">Perguntas frequentes</span><h1>Respostas para seguir em frente.</h1><p>Informações simples para as dúvidas que aparecem no caminho.</p><div className="faq-section" style={{marginTop: 42}}><FAQ items={[...faqs, { question: 'A Rumo é gratuita?', answer: 'Sim. A Rumo é um projeto educativo aberto, criado para facilitar o acesso a informações de orientação estudantil.' }, { question: 'Posso confiar nas informações?', answer: 'A Rumo organiza conteúdos educativos e indica fontes oficiais. Sempre confira editais e prazos diretamente nos sites das instituições.' }]} /></div></main><Footer /></> }
+import { CircleHelp, MessageCircleQuestion } from 'lucide-react'
+
+import { FAQAccordion } from '@/components/faq/faq-accordion'
+import { Footer } from '@/components/layout/footer'
+import { Header } from '@/components/layout/header'
+import { faqs } from '@/modules/content/data/faqs'
+
+export default function FAQPage() {
+  return (
+    <>
+      <Header />
+
+      <main className="faq-page">
+        <section className="faq-page-hero">
+          <div className="faq-page-eyebrow">
+            <CircleHelp size={17} aria-hidden="true" />
+            Perguntas frequentes
+          </div>
+
+          <h1>Respostas claras para seguir em frente.</h1>
+
+          <p>
+            Encontre respostas para dúvidas sobre a Rumo, estudos, tecnologia, ENEM, escolhas acadêmicas e outros temas importantes para sua trajetória.
+          </p>
+        </section>
+
+        <section className="faq-page-content" aria-labelledby="faq-list-title">
+          <div className="faq-page-content-heading">
+            <span className="faq-page-content-icon" aria-hidden="true">
+              <MessageCircleQuestion size={25} />
+            </span>
+
+            <div>
+              <h2 id="faq-list-title">Encontre sua dúvida</h2>
+              <p>Clique em uma pergunta para visualizar a resposta.</p>
+            </div>
+          </div>
+
+          <FAQAccordion items={faqs} />
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  )
+}
