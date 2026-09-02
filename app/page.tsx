@@ -1,3 +1,5 @@
-import { HomePage } from '@/components/rumo-shell'
+import { HomePage } from '@/components/home/home-page'
 
-export default function Page() { return <HomePage /> }
+export default function Page() {
+  return <HomePage />
+}
