@@ -1,8 +1,5 @@
 import Link from 'next/link'
-import {
-  RumoIcon,
-  RumoWordmark,
-} from '@/components/brand/rumo-brand'
+import { RumoWordmark } from '@/components/brand/rumo-brand'
 
 type LogoProps = {
   compact?: boolean
@@ -24,13 +21,6 @@ export function Logo({
         .join(' ')}
       aria-label="Rumo, página inicial"
     >
-      <span
-        className="rumo-logo-symbol"
-        aria-hidden="true"
-      >
-        <RumoIcon decorative />
-      </span>
-
       <RumoWordmark compact={compact} />
     </Link>
   )

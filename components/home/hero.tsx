@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   ArrowRight,
   Check,
@@ -23,24 +23,22 @@ export function Hero() {
         </p>
 
         <h1 id="home-hero-title">
-          Seu caminho
-          <br />
+          <span>Seu caminho</span>
 
-          começa{' '}
-          <span className="home-hero-highlight">
-            com uma
+          <span>
+            começa{' '}
+            <em>com uma</em>
           </span>
 
-          <br />
-
-          <span className="home-hero-highlight">
-            escolha.
+          <span>
+            <em>escolha.</em>
           </span>
         </h1>
 
         <p className="home-hero-description">
-          Informação clara para estudar, planejar o futuro
-          e tomar decisões com mais confiança. Sem pressão.
+          Informação clara para estudar,
+          planejar o futuro e tomar decisões
+          com mais confiança. Sem pressão.
           No seu ritmo.
         </p>
 
@@ -70,22 +68,25 @@ export function Hero() {
             <Check size={13} />
           </span>
 
-          Conteúdo educativo, gratuito e feito para você.
+          Conteúdo educativo, gratuito e
+          feito para você.
         </p>
       </div>
 
       <div className="home-hero-visual">
-        <div className="home-hero-art">
-          <Image
-            src="/logo.png"
-            alt="Rumo: livro aberto, caminho ascendente e formação acadêmica"
-            width={1664}
-            height={932}
-            className="home-hero-logo"
-            priority
-            sizes="(max-width: 800px) calc(100vw - 56px), (max-width: 1050px) 45vw, 680px"
-          />
-        </div>
+        <Image
+          src="/logo.png"
+          alt="Rumo: uma jornada de aprendizagem, formação e crescimento"
+          width={1664}
+          height={932}
+          priority
+          className="home-hero-logo"
+          sizes="
+            (max-width: 800px) 92vw,
+            (max-width: 1100px) 52vw,
+            670px
+          "
+        />
       </div>
     </section>
   )

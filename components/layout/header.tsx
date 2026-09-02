@@ -9,6 +9,7 @@ import {
   X,
 } from 'lucide-react'
 import { useState } from 'react'
+
 import { AccessibilityPanel } from '@/components/accessibility/accessibility-panel'
 import { Logo } from './logo'
 
@@ -29,6 +30,7 @@ const navigation = [
 
 export function Header() {
   const pathname = usePathname()
+
   const [menuOpen, setMenuOpen] =
     useState(false)
 
@@ -96,17 +98,19 @@ export function Header() {
             Começar agora
 
             <ArrowRight
-              size={16}
+              size={17}
               aria-hidden="true"
             />
           </Link>
         </div>
 
         <button
-          className="rumo-menu-button"
           type="button"
+          className="rumo-menu-button"
           onClick={() =>
-            setMenuOpen((current) => !current)
+            setMenuOpen(
+              (current) => !current,
+            )
           }
           aria-expanded={menuOpen}
           aria-controls="rumo-mobile-navigation"
@@ -153,7 +157,7 @@ export function Header() {
               setMenuOpen(false)
             }
           >
-            Buscar um tema
+            Buscar
           </Link>
 
           <AccessibilityPanel />
