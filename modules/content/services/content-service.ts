@@ -27,6 +27,24 @@ export function getGuide(slug: string) {
   )
 }
 
+/**
+ * Busca um guia garantindo que ele pertence
+ * à categoria informada na URL.
+ *
+ * Exemplo:
+ * /estudar/organizacao-de-estudos
+ */
+export function getGuideByCategoryAndSlug(
+  categorySlug: string,
+  guideSlug: string,
+) {
+  return guides.find(
+    (guide) =>
+      guide.category === categorySlug &&
+      guide.slug === guideSlug,
+  )
+}
+
 export function getGuidesByCategory(
   categorySlug: string,
 ) {
@@ -74,11 +92,34 @@ export function getNonFeaturedGuidesByCategory(
   )
 }
 
+/**
+ * Retorna os guias relacionados definidos
+ * dentro do próprio arquivo editorial do guia.
+ */
+export function getRelatedGuides(
+  guide: Guide,
+): Guide[] {
+  if (!guide.relatedGuides?.length) {
+    return []
+  }
+
+  return guide.relatedGuides
+    .map((slug) => getGuide(slug))
+    .filter(
+      (relatedGuide): relatedGuide is Guide =>
+        Boolean(relatedGuide),
+    )
+    .filter(
+      (relatedGuide) =>
+        relatedGuide.slug !== guide.slug,
+    )
+}
+
 export function getFeaturedGuides(): Guide[] {
   const featured = [
-    'organizacao-de-estudos',
-    'pesquisa-inteligente-ia',
-    'fiz-enem-e-agora',
+    'como-organizar-seus-estudos-sem-se-sobrecarregar',
+    'pesquisa-inteligente-com-ia-por-onde-comecar',
+    'fiz-o-enem-e-agora',
   ]
 
   return featured

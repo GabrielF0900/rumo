@@ -14,7 +14,11 @@ export const categories: Category[] = [
     icon: 'book',
     accent: 'blue',
     trustLabels: ['Conteúdo gratuito', 'Baseado em evidências'],
-    featuredGuideSlugs: ['organizacao-de-estudos'],
+    featuredGuideSlugs: [
+      'como-organizar-seus-estudos-sem-se-sobrecarregar',
+      'tecnicas-de-estudo-que-realmente-funcionam',
+      'como-revisar-e-fixar-o-conteudo-de-forma-eficiente',
+    ],
     learningPaths: [
       { id: 'foco', title: 'Foco e concentração', description: 'Estratégias para organizar o ambiente, reduzir distrações e sustentar a atenção.', icon: 'brain' },
       { id: 'planejamento', title: 'Metas e planejamento', description: 'Transforme objetivos grandes em prioridades e próximos passos possíveis.', icon: 'target' },
@@ -37,7 +41,7 @@ export const categories: Category[] = [
     icon: 'search',
     accent: 'violet',
     trustLabels: ['Pesquisa responsável', 'Verificação de fontes'],
-    featuredGuideSlugs: ['pesquisa-inteligente-ia'],
+    featuredGuideSlugs: ['pesquisa-inteligente-com-ia-por-onde-comecar'],
     learningPaths: [
       { id: 'pesquisa', title: 'Pesquisa na internet', description: 'Aprenda a buscar informações usando perguntas e palavras-chave mais claras.', icon: 'search' },
       { id: 'fontes', title: 'Fontes confiáveis', description: 'Observe autoria, instituição, evidências, data e contexto das informações.', icon: 'shield' },
@@ -60,7 +64,7 @@ export const categories: Category[] = [
     icon: 'target',
     accent: 'pink',
     trustLabels: ['Fontes oficiais', 'Informações atualizadas'],
-    featuredGuideSlugs: ['fiz-enem-e-agora'],
+    featuredGuideSlugs: ['fiz-o-enem-e-agora'],
     learningPaths: [
       { id: 'preparacao', title: 'Preparação', description: 'Organize estudos, conteúdos, simulados e revisões para a prova.', icon: 'book' },
       { id: 'prova', title: 'A prova', description: 'Entenda a estrutura do exame e como pesquisar informações oficiais.', icon: 'file' },
@@ -83,7 +87,7 @@ export const categories: Category[] = [
     icon: 'graduation',
     accent: 'coral',
     trustLabels: ['Decisões informadas', 'Fontes institucionais'],
-    featuredGuideSlugs: ['escolha-de-curso'],
+    featuredGuideSlugs: ['como-escolher-um-curso-superior'],
     learningPaths: [
       { id: 'curso', title: 'Escolha de curso', description: 'Compare interesses, conteúdos estudados e possibilidades profissionais.', icon: 'graduation' },
       { id: 'instituicoes', title: 'Instituições', description: 'Pesquise universidades, faculdades e centros universitários.', icon: 'building' },
