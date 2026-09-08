@@ -1,7 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
-import { InitialLoadingScreen } from '@/components/loading/initial-loading-screen'
+import { AccessibilityProvider } from '@/components/accessibility/accessibility-provider'
 import { ScrollToTop } from '@/components/layout/scroll-to-top'
 import './globals.css'
 
@@ -23,4 +23,17 @@ export const metadata: Metadata = {
   },
 }
 export const viewport: Viewport = { colorScheme: 'light', themeColor: '#1A2D7A' }
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="pt-BR" className={`${geist.variable} bg-background`}><body className="antialiased"><InitialLoadingScreen />{children}<ScrollToTop />{process.env.NODE_ENV === 'production' && <Analytics />}</body></html> }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="pt-BR" className={`${geist.variable} bg-background`}>
+      <body className="antialiased">
+        <AccessibilityProvider>
+          <a className="skip-link" href="#main-content">Pular para o conteúdo</a>
+          {children}
+          <ScrollToTop />
+        </AccessibilityProvider>
+        {process.env.NODE_ENV === 'production' && <Analytics />}
+      </body>
+    </html>
+  )
+}

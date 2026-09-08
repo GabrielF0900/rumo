@@ -36,8 +36,8 @@ export function CategoryFeaturedGuides({
         </div>
       ) : (
         <div className="category-featured-empty">
-          <strong>Novos guias estão sendo preparados.</strong>
-          <p>Enquanto isso, explore os caminhos de aprendizagem abaixo.</p>
+          <strong>Encontre um guia para o seu próximo passo.</strong>
+          <p>Explore os caminhos de aprendizagem e a biblioteca de guias abaixo.</p>
         </div>
       )}
     </section>

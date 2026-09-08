@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { ArrowUp } from 'lucide-react'
+import { useAccessibility } from '@/components/accessibility/accessibility-provider'
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
+  const { preferences } = useAccessibility()
 
   useEffect(() => {
     const updateVisibility = () => {
@@ -18,7 +20,7 @@ export function ScrollToTop() {
   }, [])
 
   const scrollToTop = () => {
-    const reduceMotion = window.matchMedia(
+    const reduceMotion = preferences.reducedMotion || window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches
 
@@ -33,6 +35,8 @@ export function ScrollToTop() {
       type="button"
       className="scroll-to-top"
       data-visible={isVisible}
+      tabIndex={isVisible ? 0 : -1}
+      aria-hidden={!isVisible}
       onClick={scrollToTop}
       aria-label="Voltar ao topo da página"
       title="Voltar ao topo"

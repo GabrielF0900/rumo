@@ -30,7 +30,7 @@ export function GuideToc({ sections }: { sections: GuideSection[] }) {
         <ChevronDown className="guide-toc-chevron" size={19} aria-hidden="true" />
       </button>
 
-      <div id={contentId} className="guide-toc-collapsible">
+      <div id={contentId} className="guide-toc-collapsible" inert={!isOpen} aria-hidden={!isOpen}>
         <div className="guide-toc-panel">
           <ol>
             {sections.map((section) => (
