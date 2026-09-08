@@ -7,7 +7,6 @@ import type { FAQItem } from '@/modules/content/domain/faq'
 
 type FAQAccordionProps = {
   items: FAQItem[]
-  allowMultiple?: boolean
 }
 
 export function FAQAccordion({ items }: FAQAccordionProps) {

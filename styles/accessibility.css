@@ -1,0 +1,56 @@
+/* Shared keyboard access and user preferences. Keep after component styles. */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 18px;
+  color: var(--primary);
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  transform: translateY(calc(-100% - 16px));
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.search-input-wrap:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.rumo-header :focus-visible,
+.rumo-footer :focus-visible {
+  outline-color: var(--coral);
+}
+
+html.a11y-reduced-motion {
+  scroll-behavior: auto !important;
+}
+
+.a11y-reduced-motion *,
+.a11y-reduced-motion *::before,
+.a11y-reduced-motion *::after {
+  animation-iteration-count: 1 !important;
+}
+
+.a11y-reduced-motion .app-loading-track span {
+  animation: none !important;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .rumo-mobile-nav .accessibility-panel {
+    left: 0;
+    right: auto;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (min-width: 901px) {
+  .rumo-mobile-nav {
+    display: none;
+  }
+}

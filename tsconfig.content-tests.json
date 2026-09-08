@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmit": false,
+    "incremental": false,
+    "rootDir": ".",
+    "outDir": ".validation/content-tests",
+    "plugins": []
+  },
+  "include": ["modules/content/**/*.ts", "tests/content.test.ts"],
+  "exclude": ["node_modules", ".next", ".validation"]
+}

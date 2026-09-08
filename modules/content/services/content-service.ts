@@ -4,6 +4,16 @@ import { guides } from '../data/guides'
 
 import type { FAQItem } from '../domain/faq'
 import type { Guide } from '../domain/guide'
+import type { GuideSearchItem } from '../domain/search'
+
+export function getSearchCatalog(): GuideSearchItem[] {
+  return guides.map(({ slug, category, title, summary, readTime, tags }) => {
+    const categoryData = getCategory(category)
+    if (!categoryData) throw new Error(`Unknown guide category: ${category}`)
+    return { slug, category, title, summary, readTime, tags,
+      categoryName: categoryData.name, categoryAccent: categoryData.accent }
+  })
+}
 
 export function getCategories() {
   return categories

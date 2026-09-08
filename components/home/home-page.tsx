@@ -15,7 +15,7 @@ export function HomePage() {
   return (
     <>
       <Header />
-      <main className="home-main">
+      <main id="main-content" tabIndex={-1} className="home-main">
         <Hero />
         <TopicsSection categories={categories} />
         <FeaturedGuides guides={guides} categories={categories} />
