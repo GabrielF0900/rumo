@@ -117,3 +117,7 @@ Evidências adicionais: `.validation/resumed-hashes.json`, `resumed-http-before.
 - Publicação não realizada. Alterações permanecem locais na branch de trabalho, aguardando autorização explícita do usuário para qualquer commit ou publicação.
 
 O lint utiliza a [configuração oficial de ESLint do Next](https://nextjs.org/docs/app/api-reference/config/eslint). Servidores locais de validação foram encerrados ao terminar. Nenhuma interação com navegador foi retomada após a orientação do usuário.
+
+### Ajuste posterior — tela de entrada restaurada
+
+Por solicitação explícita do usuário, a tela inicial foi restaurada ao comportamento anterior à limpeza: logo animado e barra de progresso durante 1.900 ms, seguidos de transição de saída de 350 ms, com remoção aos 2.250 ms após a montagem. O componente `InitialLoadingScreen` e seu CSS foram recuperados do commit `46ea8ea` e reintegrados ao layout global, mantendo os estilos em `styles/loading.css`. A tela aparece na entrada/recarregamento da plataforma. Esta decisão substitui a remoção do splash registrada acima; o fallback de navegação continua vinculado ao ciclo do Next. TypeScript e lint foram executados para validar o ajuste. A alteração preexistente de `next-env.d.ts` foi preservada.

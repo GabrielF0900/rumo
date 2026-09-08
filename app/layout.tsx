@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
 import { AccessibilityProvider } from '@/components/accessibility/accessibility-provider'
 import { ScrollToTop } from '@/components/layout/scroll-to-top'
+import { InitialLoadingScreen } from '@/components/loading/initial-loading-screen'
 import './globals.css'
 
 const geist = Geist({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="pt-BR" className={`${geist.variable} bg-background`}>
       <body className="antialiased">
         <AccessibilityProvider>
+          <InitialLoadingScreen />
           <a className="skip-link" href="#main-content">Pular para o conteúdo</a>
           {children}
           <ScrollToTop />
