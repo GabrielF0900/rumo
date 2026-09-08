@@ -3,14 +3,20 @@ import { CircleHelp, MessageCircleQuestion } from 'lucide-react'
 import { FAQAccordion } from '@/components/faq/faq-accordion'
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
-import { faqs } from '@/modules/content/data/faqs'
+import type { Metadata } from 'next'
+import { getFaqs } from '@/modules/content/services/content-service'
+
+export const metadata: Metadata = {
+  title: 'Perguntas frequentes | Rumo',
+  description: 'Respostas sobre a Rumo, estudos, tecnologia e orientação estudantil.',
+}
 
 export default function FAQPage() {
   return (
     <>
       <Header />
 
-      <main className="faq-page">
+      <main id="main-content" tabIndex={-1} className="faq-page">
         <section className="faq-page-hero">
           <div className="faq-page-eyebrow">
             <CircleHelp size={17} aria-hidden="true" />
@@ -36,7 +42,7 @@ export default function FAQPage() {
             </div>
           </div>
 
-          <FAQAccordion items={faqs} />
+          <FAQAccordion items={getFaqs()} />
         </section>
       </main>
 

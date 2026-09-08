@@ -77,8 +77,8 @@ export function Hero() {
         <Image
           src="/logo.png"
           alt="Rumo: uma jornada de aprendizagem, formação e crescimento"
-          width={1664}
-          height={932}
+          width={1672}
+          height={941}
           priority
           className="home-hero-logo"
           sizes="

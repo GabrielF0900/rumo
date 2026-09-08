@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -19,6 +20,11 @@ import {
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
 
+export const metadata: Metadata = {
+  title: 'Sobre a Rumo | Rumo',
+  description: 'Conheça a origem, a missão e os princípios da Rumo, uma iniciativa de orientação estudantil.',
+}
+
 const values = [
   { title: 'Clareza', description: 'Transformar informação difícil em orientação compreensível sem perder responsabilidade.', icon: Lightbulb },
   { title: 'Autonomia', description: 'Ajudar o estudante a avaliar possibilidades e tomar suas próprias decisões.', icon: MoveUpRight },
@@ -38,7 +44,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="about-page">
+      <main id="main-content" tabIndex={-1} className="about-page">
         <section className="about-hero" aria-labelledby="about-title">
           <div className="about-hero-copy">
             <p className="about-kicker">Uma plataforma que começou pela escuta</p>
@@ -61,8 +67,9 @@ export default function AboutPage() {
             <Image
               src="/logo-pequena.png"
               alt="Símbolo da Rumo: livro, caminho, formação e avanço"
-              width={1280}
-              height={1280}
+              width={1254}
+              height={1254}
+              sizes="(max-width: 800px) 90vw, 470px"
               priority
               className="about-logo-image"
             />

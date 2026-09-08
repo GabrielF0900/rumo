@@ -31,8 +31,9 @@ export function CategoryHeroArt({
       <Image
         src={imageSrc}
         alt=""
-        width={900}
-        height={620}
+        width={1448}
+        height={1086}
+        sizes="(max-width: 800px) 92vw, 650px"
         priority={category.slug === 'estudar'}
         className="category-hero-image"
       />

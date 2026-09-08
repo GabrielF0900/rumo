@@ -1,3 +1,10 @@
 minimumReleaseAgeExclude:
   - '@next/*'
   - next
+
+# Correções pontuais dentro das mesmas versões principais; rever no próximo audit.
+overrides:
+  'postcss@>=8.0.0 <8.5.23': 8.5.23
+  'nanoid@>=3.0.0 <3.3.18': 3.3.18
+  'browserslist@>=4.0.0 <4.28.7': 4.28.7
+  'brace-expansion@>=5.0.0 <5.0.9': 5.0.9

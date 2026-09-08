@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 import { GuidePage } from '@/components/guide/guide-page'
 import { Footer } from '@/components/layout/footer'
@@ -15,6 +16,17 @@ export function generateStaticParams() {
     categoria: guide.category,
     slug: guide.slug,
   }))
+}
+
+export const dynamicParams = false
+
+export async function generateMetadata({ params }: {
+  params: Promise<{ categoria: string; slug: string }>
+}): Promise<Metadata> {
+  const { categoria, slug } = await params
+  const guide = getGuideByCategoryAndSlug(categoria, slug)
+  if (!guide) notFound()
+  return { title: `${guide.title} | Rumo`, description: guide.summary }
 }
 
 export default async function Page({
@@ -38,7 +50,7 @@ export default async function Page({
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <GuidePage guide={guide} category={category} relatedGuides={relatedGuides} />
       </main>
       <Footer />

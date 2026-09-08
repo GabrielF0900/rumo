@@ -1,0 +1,108 @@
+/* =========================================
+   ABOUT PAGE
+   ========================================= */
+
+.about-page { width: 100%; max-width: 100%; overflow-x: hidden; color: var(--primary); background: radial-gradient(circle at 92% 7%, color-mix(in srgb, var(--pink) 9%, transparent), transparent 27%), radial-gradient(circle at 5% 24%, color-mix(in srgb, var(--blue) 8%, transparent), transparent 24%), var(--background); }
+.about-hero, .about-origin, .about-bento, .about-journey, .about-mission, .about-values, .about-closing { width: min(1320px, calc(100% - 48px)); margin-inline: auto; }
+.about-hero { min-height: 670px; padding: 96px 0 112px; display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(390px, .84fr); align-items: center; gap: clamp(50px, 7vw, 110px); }
+.about-kicker { margin: 0 0 18px; color: var(--violet); font-size: .76rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.about-hero h1 { max-width: 1080px; margin: 0; color: var(--primary); font-size: clamp(3.35rem, 5.7vw, 6rem); line-height: .98; letter-spacing: -.065em; }
+.about-hero h1 em { color: var(--pink); font-family: Georgia, serif; font-weight: 500; }
+.about-hero-lead { max-width: 720px; margin: 28px 0 0; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.18rem); line-height: 1.75; }
+.about-hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.about-primary-action, .about-secondary-action { min-height: 50px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 13px; font-size: .9rem; font-weight: 750; text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
+.about-primary-action { color: #fff; background: var(--primary); box-shadow: var(--shadow-md); }
+.about-secondary-action { color: var(--primary); background: var(--surface); border: 1px solid var(--line); }
+.about-primary-action:hover, .about-secondary-action:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.about-hero-visual { position: relative; min-height: 500px; display: grid; place-items: center; isolation: isolate; }
+.about-logo-halo { position: absolute; inset: 8% 3%; z-index: -1; background: radial-gradient(circle, color-mix(in srgb, var(--violet) 18%, transparent), transparent 66%); filter: blur(12px); }
+.about-logo-image { width: min(100%, 470px); height: auto; object-fit: contain; filter: drop-shadow(0 32px 32px color-mix(in srgb, var(--primary) 17%, transparent)); animation: about-logo-float 6s ease-in-out infinite; }
+.about-hero-visual p { position: absolute; right: 2%; bottom: 4%; margin: 0; padding: 13px 18px; display: flex; flex-direction: column; color: var(--primary); background: color-mix(in srgb, #fff 88%, transparent); border: 1px solid var(--line); border-radius: 15px; box-shadow: var(--shadow-sm); backdrop-filter: blur(12px); }
+.about-hero-visual strong { font-size: 1.15rem; }
+.about-hero-visual span { margin-top: 2px; color: var(--muted); font-size: .76rem; }
+
+.about-origin { padding: 132px 0; display: grid; grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr); gap: clamp(55px, 9vw, 150px); border-top: 1px solid var(--line); }
+.about-origin-heading, .about-journey-intro { position: sticky; top: 120px; align-self: start; }
+.about-origin h2, .about-journey h2, .about-values h2 { margin: 0; font-size: clamp(2.4rem, 4vw, 4.5rem); line-height: 1.04; letter-spacing: -.05em; }
+.about-origin-story { color: var(--muted); font-size: 1.05rem; line-height: 1.9; }
+.about-origin-story p { margin: 0 0 26px; }
+.about-origin-story strong { color: var(--primary); }
+.about-story-lead { color: var(--primary); font-size: clamp(1.3rem, 2vw, 1.75rem); line-height: 1.55; }
+
+.about-bento { padding: 120px 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-flow: dense; gap: 12px; }
+.about-bento-card { min-height: 265px; padding: 30px; grid-column: span 4; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; transition: transform 300ms ease, box-shadow 300ms ease; }
+.about-bento-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.about-bento-card > svg { color: var(--violet); }
+.about-bento-card h2, .about-bento-card h3 { margin: 18px 0 10px; letter-spacing: -.03em; }
+.about-bento-card h3 { font-size: 1.2rem; }
+.about-bento-card p { color: var(--muted); line-height: 1.65; }
+.about-problem-card { min-height: 420px; grid-column: span 7; color: #fff; background: var(--primary); border-color: transparent; }
+.about-problem-card .about-kicker, .about-problem-card > svg { color: var(--coral); }
+.about-problem-card h2 { max-width: 760px; color: #fff; font-size: clamp(2rem, 3.2vw, 3.5rem); line-height: 1.08; }
+.about-problem-card p:not(.about-kicker) { max-width: 720px; color: #dfe5ff; }
+.about-ods-card { min-height: 420px; grid-column: span 5; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg, #fff, color-mix(in srgb, var(--coral) 30%, #fff)); }
+.about-ods-number { color: var(--pink); font-family: Georgia, serif; font-size: 7rem; line-height: .8; }
+
+.about-journey { padding: 142px 0; display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); gap: clamp(55px, 8vw, 130px); }
+.about-journey-intro > p:last-child { max-width: 500px; color: var(--muted); line-height: 1.7; }
+.about-timeline { margin: 0; padding: 0; list-style: none; }
+.about-timeline li { min-height: 170px; padding: 32px 0; display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 22px; border-top: 1px solid var(--line); }
+.about-timeline li:last-child { border-bottom: 1px solid var(--line); }
+.about-timeline li > span { color: var(--pink); font-family: Georgia, serif; font-size: 1.35rem; }
+.about-timeline h3 { margin: 0; font-size: clamp(1.5rem, 2vw, 2.1rem); }
+.about-timeline p { max-width: 620px; margin: 10px 0 0; color: var(--muted); line-height: 1.65; }
+
+.about-mission { padding: clamp(45px, 7vw, 90px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(310px, .75fr); gap: clamp(45px, 8vw, 120px); color: #fff; background: linear-gradient(125deg, var(--primary), #263f9b 62%, #57339e); border-radius: 32px; box-shadow: var(--shadow-md); }
+.about-mission-copy > svg, .about-mission .about-kicker { color: var(--coral); }
+.about-mission .about-kicker { margin-top: 22px; }
+.about-mission h2 { margin: 0; max-width: 900px; color: #fff; font-size: clamp(2.3rem, 4vw, 4.3rem); line-height: 1.06; letter-spacing: -.05em; }
+.about-mission-copy > p:last-child { max-width: 760px; color: #dce3ff; line-height: 1.7; }
+.about-commitments { margin: 0; padding: 0; align-self: center; list-style: none; }
+.about-commitments li { padding: 18px 0; display: flex; align-items: flex-start; gap: 12px; color: #f7f8ff; border-bottom: 1px solid #ffffff24; line-height: 1.5; }
+.about-commitments svg { flex: 0 0 auto; color: var(--coral); }
+
+.about-values { padding: 150px 0; }
+.about-values-heading { max-width: 900px; }
+.about-values-grid { margin-top: 70px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.about-values-grid article { min-height: 260px; padding: 27px; background: #fff; border: 1px solid var(--line); border-radius: 20px; }
+.about-values-grid svg { color: var(--violet); }
+.about-values-grid h3 { margin: 70px 0 10px; font-size: 1.25rem; }
+.about-values-grid p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+.about-closing { margin-bottom: 100px; padding: clamp(36px, 6vw, 76px); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: end; gap: 70px; background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 9%, #fff), color-mix(in srgb, var(--pink) 8%, #fff)); border: 1px solid var(--line); border-radius: 30px; }
+.about-closing > div > svg { color: var(--pink); }
+.about-closing h2 { max-width: 760px; margin: 22px 0 16px; font-size: clamp(2.3rem, 4vw, 4.2rem); line-height: 1.03; letter-spacing: -.05em; }
+.about-closing p { color: var(--muted); line-height: 1.7; }
+.about-closing-action { padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); }
+.about-closing-action a { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 800; text-decoration: none; }
+.about-primary-action:focus-visible, .about-secondary-action:focus-visible, .about-closing-action a:focus-visible { outline: 3px solid color-mix(in srgb, var(--blue) 40%, transparent); outline-offset: 4px; }
+
+@keyframes about-logo-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-14px) rotate(1deg); } }
+
+@media (max-width: 1050px) { .about-hero { grid-template-columns: minmax(0, 1fr) minmax(340px, .72fr); } .about-values-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px) {
+  .about-hero, .about-origin, .about-journey, .about-mission, .about-closing { grid-template-columns: 1fr; }
+  .about-hero { padding: 70px 0 90px; }
+  .about-hero-visual { min-height: 390px; }
+  .about-origin, .about-bento, .about-journey, .about-values { padding-block: 90px; }
+  .about-origin-heading, .about-journey-intro { position: static; }
+  .about-problem-card, .about-ods-card { grid-column: 1 / -1; }
+  .about-bento-card:not(.about-problem-card):not(.about-ods-card) { grid-column: span 6; }
+  .about-mission { border-radius: 24px; }
+}
+@media (max-width: 560px) {
+  .about-hero, .about-origin, .about-bento, .about-journey, .about-mission, .about-values, .about-closing { width: min(100% - 32px, 1320px); }
+  .about-hero h1 { font-size: clamp(2.8rem, 13vw, 4.2rem); }
+  .about-hero-actions { align-items: stretch; flex-direction: column; }
+  .about-hero-visual { min-height: 330px; }
+  .about-hero-visual p { right: 0; bottom: 0; }
+  .about-bento-card:not(.about-problem-card):not(.about-ods-card) { grid-column: 1 / -1; }
+  .about-bento-card { min-height: auto; padding: 24px; }
+  .about-problem-card, .about-ods-card { min-height: 370px; }
+  .about-timeline li { grid-template-columns: 44px minmax(0, 1fr); }
+  .about-values-grid { grid-template-columns: 1fr; margin-top: 45px; }
+  .about-values-grid article { min-height: 220px; }
+  .about-mission { padding: 30px 23px; }
+  .about-closing { margin-bottom: 64px; padding: 28px 22px; gap: 32px; }
+}
+@media (prefers-reduced-motion: reduce) { .about-logo-image { animation: none; } .about-primary-action, .about-secondary-action, .about-bento-card { transition: none; } }

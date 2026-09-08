@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 import { CategoryFeaturedGuides } from '@/components/category/category-featured-guides'
 import { CategoryGuideLibrary } from '@/components/category/category-guide-library'
@@ -20,6 +21,17 @@ export function generateStaticParams() {
   }))
 }
 
+export const dynamicParams = false
+
+export async function generateMetadata({ params }: {
+  params: Promise<{ categoria: string }>
+}): Promise<Metadata> {
+  const { categoria } = await params
+  const category = getCategory(categoria)
+  if (!category) notFound()
+  return { title: `${category.name} | Rumo`, description: category.description }
+}
+
 export default async function CategoryPage({
   params,
 }: {
@@ -38,7 +50,7 @@ export default async function CategoryPage({
   return (
     <>
       <Header />
-      <main className="category-page">
+      <main id="main-content" tabIndex={-1} className="category-page">
         <CategoryHero category={category} />
         <CategoryFeaturedGuides category={category} guides={featuredGuides} />
         <CategoryLearningPaths category={category} />

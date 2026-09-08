@@ -15,6 +15,21 @@ export function AccessibilityPanel() {
     if (open) panelRef.current?.querySelector('button')?.focus()
   }, [open])
 
+  useEffect(() => {
+    if (!open) return
+    const breakpoint = window.matchMedia('(max-width: 900px)')
+    const closeOnLayoutChange = () => {
+      const ownedFocus = panelRef.current?.contains(document.activeElement)
+      setOpen(false)
+      if (ownedFocus) {
+        const triggers = document.querySelectorAll<HTMLButtonElement>('.accessibility-trigger, .rumo-menu-button')
+        Array.from(triggers).find((trigger) => trigger.getClientRects().length > 0)?.focus()
+      }
+    }
+    breakpoint.addEventListener('change', closeOnLayoutChange)
+    return () => breakpoint.removeEventListener('change', closeOnLayoutChange)
+  }, [open])
+
   return (
     <div className="accessibility-wrap"
       onBlur={(event) => {

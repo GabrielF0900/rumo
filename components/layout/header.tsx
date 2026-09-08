@@ -8,7 +8,7 @@ import {
   Search,
   X,
 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { AccessibilityPanel } from '@/components/accessibility/accessibility-panel'
 import { Logo } from './logo'
@@ -33,6 +33,14 @@ export function Header() {
 
   const [menuOpen, setMenuOpen] =
     useState(false)
+  const menuTrigger = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 901px)')
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false) }
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => desktop.removeEventListener('change', closeOnDesktop)
+  }, [])
 
   function isActive(href: string) {
     if (href === '/estudar') {
@@ -46,7 +54,12 @@ export function Header() {
   }
 
   return (
-    <header className="rumo-header">
+    <header className="rumo-header" onKeyDown={(event) => {
+      if (event.key === 'Escape' && menuOpen) {
+        setMenuOpen(false)
+        menuTrigger.current?.focus()
+      }
+    }}>
       <div className="rumo-header-inner">
         <Logo inverse />
 
@@ -105,6 +118,7 @@ export function Header() {
         </div>
 
         <button
+          ref={menuTrigger}
           type="button"
           className="rumo-menu-button"
           onClick={() =>
